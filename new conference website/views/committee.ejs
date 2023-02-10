@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            padding: 0 5%;
+            background-color: #161616;
+        }
+
+        .container {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 0 1vw;
+        }
+
+        marquee {
+
+            background-image: linear-gradient(to left bottom, #000000, #2c1318, #531c23, #7c2528, #a33327);
+            color: white;
+            height: 5vh;
+            padding-top: 1vh;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            /* border: 1px solid black; */
+            height: 15vh;
+            padding-top: 1vh;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .college_logo {
+            width: 25%;
+            height: 90%;
+        }
+
+        .aku_logo {
+            height: 79px;
+            width: 251px;
+        }
+
+        .logo #burger_icon_open {
+            height: 50px;
+            width: 34px;
+            position: absolute;
+            top: 13px;
+            right: 3%;
+            display: none;
+        }
+
+        .logo #burger_icon_close {
+            height: 50px;
+            width: 34px;
+            position: absolute;
+            top: 13px;
+            right: 3%;
+            display: none;
+        }
+
+        .site-name {
+            width: 400px;
+            text-align: center;
+            position: absolute;
+            left: 26vw;
+            top: 1vh;
+        }
+
+        @media screen and (max-width:1113px) {
+            .site-name {
+
+                display: none;
+            }
+        }
+
+        .site-name h4 {
+
+            color: #7c2528;
+        }
+
+        .menu_list {
+            width: 50%;
+            height: 78vh;
+            background-color: rgb(250, 246, 246);
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            padding: 0 0;
+            box-sizing: border-box;
+            display: none;
+            z-index: 1;
+
+        }
+
+        .menu_list ul {
+            list-style: none;
+            padding-left: 6%;
+
+        }
+
+        .menu_list ul li {
+            padding: 0;
+
+
+        }
+
+
+        .menu_list ul .listWithBorder {
+
+            border-bottom: 1px solid rgb(221, 217, 217);
+
+        }
+
+        .menu_list ul a {
+            display: block;
+            text-decoration: none;
+            padding: 11px 18px;
+            font-weight: 500;
+            font-size: small;
+            color: #000000c7;
+        }
+
+        .menu_list ul a:hover {
+            color: white;
+            background-color: #7c2528;
+        }
+
+
+        .menu_list #cross_icon {
+            height: 35px;
+            width: 40px;
+            position: absolute;
+            top: 40px;
+            right: 20%;
+            background: rgb(197, 194, 194);
+        }
+
+        @media screen and (max-width:1113px) {
+            .logo #burger_icon_open {
+                display: block;
+            }
+
+            .aku_logo {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        .navigation_bar {
+            /* background-color: var(--background_color); */
+            background-image: linear-gradient(to left bottom, #000000, #2c1318, #531c23, #7c2528, #a33327);
+            margin: 0;
+            /* padding: 0.8vh 0; */
+            width: 100%;
+            height: 6vh;
+            /* border: 1px solid black; */
+
+
+        }
+
+        .navigation_bar ul {
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            padding-left: 0;
+
+        }
+
+        .navigation_bar li {
+            display: inline-block;
+            /* margin: 6px 8px 8px 0; */
+            padding: 0px;
+            margin-top: 9px;
+        }
+
+
+
+        .navigation_bar a {
+            text-decoration: none;
+
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            padding: 12px;
+
+        }
+
+        .navigation_bar a:hover {
+            background-color: white;
+            color: var(--background_color);
+        }
+
+        @media screen and (max-width:1113px) {
+            .navigation_bar {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        .about_dwnlds {
+            width: 100%;
+            margin-top: 35px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .committee {
+            width: 62%;
+            border: 1px solid black;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+
+
+        }
+
+        .committee-btn {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #advisory-btn,#volunteer-btn,#technical-btn,#organising-btn{
+            padding: 5px;
+            color: white;
+            background-image: linear-gradient(to left bottom, #000000, #2c1318, #531c23, #7c2528, #a33327);
+        }
+
+        #advisory-list {
+            width: 100%;
+            display: block;
+        }
+        #volunteer-list {
+            width: 100%;
+            display: none;
+        }
+        #technical-list {
+            width: 100%;
+            display: none;
+        }
+        #organising-list {
+            width: 100%;
+            display: none;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid white;
+            padding: 1px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            background-color: #96D4D4;
+        }
+
+        .dwnlds {
+            width: 37%;
+            height: 60vh;
+            border: 1px solid black;
+            background-image: linear-gradient(to left bottom, #000000, #2c1318, #531c23, #7c2528, #a33327);
+        }
+
+        .dwnlds h2 {
+            text-align: center;
+            color: white;
+        }
+
+        .dwnlds ul {
+            list-style: none;
+            padding: 0 10px 0 10px;
+        }
+
+        .dwnlds li {
+            font-size: 1rem;
+            padding: 6px;
+            color: white;
+            border-bottom: 1px solid grey;
+            /* border-left: 1px solid grey; */
+        }
+
+        .dwnlds a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .dwnlds a:hover {
+            color: rgb(250, 108, 108);
+        }
+
+        @media screen and (max-width: 770px) {
+            .about_dwnlds {
+                flex-direction: column;
+            }
+
+            .committee{
+                width: 100%;
+                
+            }
+
+            .dwnlds {
+                width: 100%;
+                margin-top: 15px;
+            }
+        }
+
+        .social {
+            margin-top: 35px;
+            height: 15vh;
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+        }
+
+        .social:hover {
+            background-image: linear-gradient(to left bottom, #000000, #2c1318, #531c23, #7c2528, #a33327);
+        }
+
+
+
+        .text {
+            margin: auto;
+        }
+
+        .text h2 {
+            color: white;
+            text-align: center;
+        }
+
+        .social_icon {
+            margin: auto;
+        }
+
+        .social_icon img {
+            height: 35px;
+        }
+
+        .query {
+            margin-top: 35px;
+        }
+
+        .query ul {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+
+        .query li {
+            padding: 0 5px;
+
+        }
+
+        .query a {
+            text-decoration: none;
+
+        }
+
+        .horizontal_line {
+            border-bottom: 1px solid black;
+            margin-top: 35px;
+        }
+
+        .copyright_designed-by {
+            margin-top: 35px;
+
+        }
+
+        .copyright_designed-by p {
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="marquee">
+            <marquee direction="left">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, voluptatum.
+            </marquee>
+        </div>
+
+        <div class="logo">
+            <img class="college_logo" src="./images/site-logo1.jpg" alt="">
+
+            <div class="site-name">
+                <h4>INTERNATIONAL CONFERENCE ON EMERGING TECHNOLOGY AND ADVANCE COMPUTING</h4>
+            </div>
+
+            <img class="aku_logo" src="./images/AKU_logo.png" alt="">
+
+            <img id="burger_icon_open" class="burger_icon" src="./images/burger icon.png" alt="">
+            <img id="burger_icon_close" class="burger_icon" src="./images/burger icon.png" alt="">
+        </div>
+
+        <div class="menu_list" id="menu_list">
+
+            <ul>
+                <li class="listWithBorder"><a href="/">HOME</a></li>
+                <li class="listWithBorder"><a href="">SUBMIT PAPER</a></li>
+                <li class="listWithBorder"><a href="">PAPER FORMAT DOWNLOAD</a></li>
+                <li class="listWithBorder"><a href="/aboutUs">ABOUT US</a></li>
+                <li class="listWithBorder"><a href="/callforPaper">CALL FOR PAPER</a></li>
+                <li class="listWithBorder"><a href="/committee">COMMITTEE</a></li>
+                <li class="listWithBorder"><a href="/speakers">SPEAKERS</a></li>
+                <li class="listWithBorder"><a href="/guidelines">GUIDELINES</a></li>
+                <li class="listWithBorder"><a href="/registration">REGISTRATION</a></li>
+                <li class="listWithBorder"><a href="/gallery">GALLERY</a></li>
+                <li class="listWithBorder"><a href="/contactUs">CONTACT US</a></li>
+                <li class="listWithBorder"><a href="/login">ADMIN LOGIN</a></li>
+
+            </ul>
+        </div>
+
+        <nav class="navigation_bar">
+            <ul>
+                <li><a href="/aboutUs">ABOUT US</a></li>
+                <li><a href="/callforPaper">CALL FOR PAPER</a></li>
+                <li><a href="/committee">COMMITTEE</a></li>
+                <li><a href="/speakers">SPEAKERS</a></li>
+                <li><a href="/guidelines">GUIDELINES</a></li>
+                <li><a href="/registration">REGISTRATION</a></li>
+                <li><a href="/gallery">GALLERY</a></li>
+                <li><a href="/contactUs">CONTACT US</a></li>
+                <li><a href="/login">ADMIN</a></li>
+            </ul>
+        </nav>
+
+        <div class="about_dwnlds">
+            <div class="committee">
+                <div class="committee-btn">
+                    <button id="advisory-btn">Advisory Committee</button>
+                    <button id="volunteer-btn">Volunteer Committee</button>
+                    <button id="technical-btn">Technical Committee</button>
+                    <button id="organising-btn">Organising Committee</button>
+                </div>
+                <div class="committee-list">
+                    <div id="advisory-list">
+                        <h2>Members of Advisory Committee</h2>
+
+                        <table>
+                            <tr>
+                                <td>Prof. (Dr.) Vincenzo Piuri</td>
+                                <td>University of Milan, Italy.</td>
+                            </tr>
+                            <tr>
+                                <td>Prof. (Dr.) Valentina E Balas</td>
+                                <td>Aurel Vlaicu University of Arad, Romania.</td>
+                            </tr>
+                            <tr>
+                                <td>Prof. (Dr.) Badrul Hisham Bin Ahmad</td>
+                                <td>Universiti Teknikal, Malaysia.</td>
+                            </tr>
+                            <tr>
+                                <td>Prof. (Dr.).Ahmad Elngar</td>
+                                <td>Beni-Suef University, Egypt.</td>
+                            </tr>
+                            <tr>
+                                <td>Ms. Ezhilarasi</td>
+                                <td>ISRO, Trivandram, India.</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Rajeev Sharma</td>
+                                <td>DST, New Delhi, India</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Sunil Kumar Khatri</td>
+                                <td>Amity University, Tashkent</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Ahmad A Elinger</td>
+                                <td>Beni Suef University, Egypt</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Ahmed T. AlTaani</td>
+                                <td>Yarmouk University, Jordan</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Syed Hamid Hassan</td>
+                                <td>King Abdulaziz University,Jeddah, Saudi Arbia</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Tomy Sebastian</td>
+                                <td>Director. Motor Drive Systems at Halla Mechatronics</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="volunteer-list">
+                        <h2>Members of Volunteer Committee</h2>
+
+                    </div>
+                    <div id="technical-list">
+                        <h2>Members of Technical Committee</h2>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                            <tr>
+                                <td>H.P. Garg</td>
+                                <td>Former Prof. & Head IIT Delhi</td>
+                            </tr>
+                            <tr>
+                                <td>Marc Quast</td>
+                                <td>ST - Microelectronic, France </td>
+                            </tr>
+                            <tr>
+                                <td>Sohail Akhtar</td>
+                                <td>MNRE New Delhi</td>
+                            </tr>
+                            <tr>
+                                <td>Rajendra Kumar Pandey</td>
+                                <td>National Power Training Institute
+                                    Ministry of Power Government of India </td>
+                            </tr>
+                            <tr>
+                                <td>ANIL KR YADAV</td>
+                                <td>UCER, GREATER NOIDA</td>
+                            </tr>
+                            <tr>
+                                <td>Upasana Singh</td>
+                                <td>University of KwaZulu Natal, Westville Campus, Durban South Africa</td>
+                            </tr>
+                            <tr>
+                                <td>Virendra Amola</td>
+                                <td>ONGC, New Delhi</td>
+                            </tr>
+                            <tr>
+                                <td>Shamama Ahmed</td>
+                                <td>Europe Study Centre Noida</td>
+                            </tr>
+                            <tr>
+                                <td>Alok Prakash Mittal</td>
+                                <td>Membar Secretary, AICTE New Delhi</td>
+                            </tr>
+                            <tr>
+                                <td>AP SHUKLA</td>
+                                <td>KIET, GHAZIABAD</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="organising-list">
+                        <h2>Members of Organising Committee</h2>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="dwnlds">
+                <h2>DOWNLOADS</h2>
+                <ul>
+                    <% for(let i of downloads){%>
+                        <li>
+                            <a href="<%= i.link %>">
+                                <%= i.download %>
+                            </a>
+                        </li>
+                        <%}%>
+                </ul>
+            </div>
+        </div>
+
+        <div class="social">
+            <div class="text">
+                <h2>CONNECT WITH US</h2>
+            </div>
+
+            <div class="social_icon">
+                <img src="./images/facebook.png" alt="">
+                <img src="./images/twitter.png" alt="">
+                <img src="./images/linkedin.png" alt="">
+                <img src="./images/youtube.jpg" alt="">
+            </div>
+        </div>
+
+
+
+
+        <div class="query">
+            <ul>
+                <li><a href="">About Us</a></li>
+                <li><a href="">FAQs</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li><a href="">Code of Conduct</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Disclaimer</a></li>
+            </ul>
+        </div>
+
+
+
+        <div class="horizontal_line"></div>
+
+        <div class="copyright_designed-by">
+            <p>© 2019 International Conference on Advance Computing and Innovative Technologies in Engineering. All
+                rights resereved</p>
+            <p>Designed and Developed By: AMAN DAYAL</p>
+        </div>
+    </div>
+
+    <script>
+        var view = document.getElementById("menu_list");
+
+        var burger_icon_open = document.getElementById("burger_icon_open");
+
+        var burger_icon_close = document.getElementById("burger_icon_close");
+
+        burger_icon_open.addEventListener('click', function () {
+
+            view.style.display = "block";
+            burger_icon_open.style.display = "none";
+            burger_icon_close.style.display = "block";
+
+
+        });
+
+        burger_icon_close.addEventListener('click', function () {
+
+            view.style.display = "none";
+            burger_icon_open.style.display = "block";
+            burger_icon_close.style.display = "none";
+        });
+
+        // committee
+        var advisory_btn = document.getElementById("advisory-btn");
+        var volunteer_btn = document.getElementById("volunteer-btn");
+        var technical_btn = document.getElementById("technical-btn");
+        var organising_btn = document.getElementById("organising-btn");
+
+        var advisory_list = document.getElementById("advisory-list");
+        var volunteer_list = document.getElementById("volunteer-list");
+        var technical_list = document.getElementById("technical-list");
+        var organising_list = document.getElementById("organising-list");
+
+        advisory_btn.addEventListener('click', function(){
+            advisory_list.style.display = "block";
+            volunteer_list.style.display = "none";
+            technical_list.style.display = "none";
+            organising_list.style.display = "none";
+        });
+        volunteer_btn.addEventListener('click', function(){
+            advisory_list.style.display = "none";
+            volunteer_list.style.display = "block";
+            technical_list.style.display = "none";
+            organising_list.style.display = "none";
+        });
+        technical_btn.addEventListener('click', function(){
+            advisory_list.style.display = "none";
+            volunteer_list.style.display = "none";
+            technical_list.style.display = "block";
+            organising_list.style.display = "none";
+        });
+        organising_btn.addEventListener('click', function(){
+            advisory_list.style.display = "none";
+            volunteer_list.style.display = "none";
+            technical_list.style.display = "none";
+            organising_list.style.display = "block";
+        });
+
+    </script>
+</body>
+
+</html>

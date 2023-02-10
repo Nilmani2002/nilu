@@ -1,0 +1,18 @@
+{
+  "name": "contact_list",
+  "version": "1.0.0",
+  "description": "A basic contact list to learn express js framework",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aman Dayal",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.3",
+    "pug": "^3.0.2"
+  }
+}
