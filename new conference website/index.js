@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
  const ejs = require('ejs');
-const port = 8000;
-// const port = process.env.port;
-
-// const db = require('./config/mongoose');
+//const port = 8000;
+const port = process.env.port;
+const db = require('./config/mongoose');
 const db = 'mongodb+srv://amandayal:amandayal2023@cluster0.vb8rsdk.mongodb.net/mernstack?retryWrites=true&w=majority';
 
 mongoose.connect(db).then(()=>{
