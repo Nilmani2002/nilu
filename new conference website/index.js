@@ -43,7 +43,7 @@ var adminLoginDetails =
 
 
 
-app.get('/', function (req, res) {
+app.get('/aboutUs', function (req, res) {
     Download.find({}, function (err, docs1) {
         if (err) res.json(err);
         else Notice.find({}, function (err, docs) {
